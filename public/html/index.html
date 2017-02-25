@@ -51,7 +51,7 @@
               </div>
             </div>
           </form>
-          <p>Current APR Rate: <input type="number" ng-model="contract.apr"><p>%</p>
+          <p>Current APR: <input type="number" ng-model="contract.apr" value="5">
 
           <p>When do you want to be paid back?</p>
 
@@ -68,7 +68,7 @@
           </form>
 
 
-          <button ng-click="createContract(newContract)" type="submit" class="btn btn-primary">loan up</button>
+          <button type="submit" class="btn btn-primary" ng-click='loan=true ; starthere=true; createContract(newContract)'>loan up</button>
         </div>
 
 
