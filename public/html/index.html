@@ -69,15 +69,32 @@
             </div>
           </form>
 
-          <button type="submit" class="btn btn-primary" ng-click='loan=true ; starthere=true; createContract(newContract)'>loan up</button>
+          <button type="submit" class="btn btn-primary" ng-click='loanerAgreement=true ; loan=false; createContract(newContract)'>loan up</button>
         </div>
+
+<!-- Loaner Agreement Page -->
+
+      <div id="loan-agreement" class="copy text-center" ng-show="!loanerAgreement">
+        <h2>Loan Agreement</h2>
+
+        <form class="form-inline">
+          <div class="form-group">
+
+
+          </div>
+
+
+        </form>
+
+
+      </div>
 
 <!-- Borrow page -->
 
         <div id='borrowview' class='copy text-center' ng-show='borrow'>
           <h2>You qualify for:</h2>
 
-          <p>Current APR rate {{contract.upr}}</p>
+          <p>Current APR rate {{contract.apr}}</p>
 
           <p>max: </p>
           <p>min: </p>
