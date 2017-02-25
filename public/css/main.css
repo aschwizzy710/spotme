@@ -52,6 +52,12 @@ li a{
 
 #home {
   background-color: #228B22;
+  padding-top: 200px;
+}
+
+#loanview {
+  background-color: #228B22;
+  padding-top: 200px;
 }
 
 .copy {
