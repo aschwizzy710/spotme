@@ -100,6 +100,33 @@
           <p>max: </p>
           <p>min: </p>
 
+<!-- change ng-model to loan needed -->
+          <p>Amount needed?</p>
+          <form class="form-inline">
+            <div class="form-group">
+              <label class="sr-only">Amount (in dollars)</label>
+              <div class="input-group">
+                <div class="input-group-addon">$</div>
+                <input type="number" ng-model="" name='quantity' min='1' class="form-control" id="exampleInputAmount" placeholder="Amount">
+                <div class="input-group-addon">.00</div>
+              </div>
+            </div>
+          </form>
+
+<!-- change ng-model to contract.sending date something -->
+          <p>Pay back date:</p>
+          <form class="form-inline">
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker11'>
+                    <input type='text' class="form-control" ng-model="" />
+                    <span class="input-group-addon">
+                        <span id="calendarIcon" class="glyphicon glyphicon-calendar">
+                        </span>
+                    </span>
+                </div>
+            </div>
+          </form>
+
         </div>
 
 
