@@ -40,13 +40,36 @@
         <div id='loanview' class='copy text-center' ng-hide='!loan'>
           <h2>Load money</h2>
 
-          <input type="number" name='currency'>
-
+          <form class="form-inline">
+            <div class="form-group">
+              <label class="sr-only">Amount (in dollars)</label>
+              <div class="input-group">
+                <div class="input-group-addon">$</div>
+                <input type="number" name='quantity' min='1' class="form-control" id="exampleInputAmount" placeholder="Amount">
+                <div class="input-group-addon">.00</div>
+              </div>
+            </div>
+          </form>
           <p>Current APR rate {{contract.upr}}</p>
 
           <p>When do you want to be paid back?</p>
-          <input type="date" name='bday'>
 
+          <div class="container">
+              <div class="col-sm-6" style="height:130px;">
+                  <div class="form-group">
+                      <div class='input-group date' id='datetimepicker11'>
+                          <input type='text' class="form-control" />
+                          <span class="input-group-addon">
+                              <span class="glyphicon glyphicon-calendar">
+                              </span>
+                          </span>
+                      </div>
+                  </div>
+              </div>
+            
+          </div>
+
+          <button type="submit" class="btn btn-primary">loan up</button>
         </div>
 
 

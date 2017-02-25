@@ -38,6 +38,11 @@ $(window).on('load', function () {
     AOS.refresh();
 });
 
+$(function () {
+    $('#datetimepicker11').datetimepicker({
+        daysOfWeekDisabled: [0, 6]
+    });
+});
 
 
 }());
