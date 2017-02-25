@@ -20,12 +20,13 @@
           <ul class="nav nav-pills">
             <li role="presentation"><a href="#about" onclick="$('#about').animatescroll({scrollSpeed:1000,easing:'easeInOutBack'});">About</a></li>
             <li role="presentation"><a href="#contact" onclick="$('#contact').animatescroll({scrollSpeed:1000,easing:'easeInOutBack'});">Contact</a></li>
-            <li role="presentation"><a href='' ng-hide='!loan' ng-click='loan=false ; starthere=false'>Start over</a></li>
+            <li role="presentation"><a href='' ng-show='borrow' ng-hide='!loan' ng-click='loan=false ; borrow=false; starthere=false'>Start over</a></li>
           </ul>
         </div>
       </nav>
     </header>
 
+<!-- Homepage -->
         <div id="home" class="text-center" ng-show='!starthere'>
           <section class="copy" >
             <div>
@@ -38,6 +39,7 @@
           </section>
         </div>
 
+<!-- Loan page -->
         <div id='loanview' class='copy text-center' ng-hide='!loan'>
           <h2>Load money</h2>
 
@@ -51,10 +53,10 @@
               </div>
             </div>
           </form>
-          <p>Current APR: <input type="number" ng-model="contract.apr" value="5">
+
+          <p>Current APR Rate: <input type="number" ng-model="contract.apr"><p>%</p>
 
           <p>When do you want to be paid back?</p>
-
           <form class="form-inline">
             <div class="form-group">
                 <div class='input-group date' id='datetimepicker11'>
@@ -67,13 +69,19 @@
             </div>
           </form>
 
-
           <button type="submit" class="btn btn-primary" ng-click='loan=true ; starthere=true; createContract(newContract)'>loan up</button>
         </div>
 
+<!-- Borrow page -->
 
-        <div ng-hide='!borrow'>
-          <h2>some other writing</h2>
+        <div id='borrowview' class='copy text-center' ng-show='borrow'>
+          <h2>You qualify for:</h2>
+
+          <p>Current APR rate {{contract.upr}}</p>
+
+          <p>max: </p>
+          <p>min: </p>
+
         </div>
 
 
