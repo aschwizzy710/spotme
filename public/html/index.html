@@ -46,21 +46,21 @@
               <label class="sr-only">Amount (in dollars)</label>
               <div class="input-group">
                 <div class="input-group-addon">$</div>
-                <input type="number" name='quantity' min='1' class="form-control" id="exampleInputAmount" placeholder="Amount">
+                <input type="number" ng-model="contract.loanAmt" name='quantity' min='1' class="form-control" id="exampleInputAmount" placeholder="Amount">
                 <div class="input-group-addon">.00</div>
               </div>
             </div>
           </form>
-          <p>Current APR rate {{contract.upr}}</p>
+          <p>Current APR Rate: <input type="number" ng-model="contract.apr"><p>%</p>
 
           <p>When do you want to be paid back?</p>
 
           <form class="form-inline">
             <div class="form-group">
                 <div class='input-group date' id='datetimepicker11'>
-                    <input type='text' class="form-control" />
+                    <input type='text' class="form-control" ng-model="contract.dueDate" />
                     <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar">
+                        <span id="calendarIcon" class="glyphicon glyphicon-calendar">
                         </span>
                     </span>
                 </div>
@@ -68,7 +68,7 @@
           </form>
 
 
-          <button type="submit" class="btn btn-primary">loan up</button>
+          <button ng-click="createContract(newContract)" type="submit" class="btn btn-primary">loan up</button>
         </div>
 
 

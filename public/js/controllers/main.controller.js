@@ -5,6 +5,7 @@
 MainController.$inject = ['$scope', 'UserService'];
 
 function MainController($scope, UserService){
+  $scope.contract.apr = 5;
   $scope.users = UserService.get();
   $scope.createUser = createUser;
   $scope.deleteUser = deleteUser;
@@ -39,7 +40,7 @@ $(window).on('load', function () {
 });
 
 $(function () {
-    $('#datetimepicker11').datetimepicker({
+    $('#calendarIcon').datetimepicker({
         daysOfWeekDisabled: [0, 6]
     });
 });
