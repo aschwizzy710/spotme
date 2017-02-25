@@ -12,30 +12,42 @@
   <div class="MainController">
 
     <header>
-      <nav class="navbar navbar-default">
+      <nav class="navbar navbar-default navbar-fixed-top">
         <div class="logo">
           <a href="#home" class="navbar-brand">Spot Me!</a>
         </div>
-      </nav>
+
+        <div class="container">
+            <ul class="nav nav-pills">
+              <li role="presentation"><a href="#about" onclick="$('#about').animatescroll({scrollSpeed:1000,easing:'easeInOutBack'});">About</a></li>
+              <li role="presentation"><a href="#contact" onclick="$('#contact').animatescroll({scrollSpeed:1000,easing:'easeInOutBack'});">Contact</a></li>
+            </ul>
+          </div>
+
+        </nav>
+
     </header>
 
-    <div>
-      <p>loan or borrow?</p>
-    </div>
+        <div id="home" class="text-center">
+          <section class="copy">
+            <div>
+              <p>loan or borrow?</p>
+            </div>
 
-    <div ng-show='!buttons'>
-        <button type='submit' class='btn-default' ng-click='loan=true ; buttons=true'>Loan</button>
-        <button type='submit' class='btn-default' ng-click='borrow=true ; buttons=true'>Borrow</button>
-    </div>
+            <div ng-show='!buttons'>
+                <button type='submit' class='btn-default' ng-click='loan=true ; buttons=true'>Loan</button>
+                <button type='submit' class='btn-default' ng-click='borrow=true ; buttons=true'>Borrow</button>
+            </div>
 
-    <div ng-hide='!loan'>
-      <p>some writing</p>
-    </div>
+            <div ng-hide='!loan'>
+              <p>some writing</p>
+            </div>
 
-    <div ng-hide='!borrow'>
-      <p>some other writing</p>
-    </div>
-
+            <div ng-hide='!borrow'>
+              <p>some other writing</p>
+            </div>
+          </section>
+        </div>
 
 
   </div>
