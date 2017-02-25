@@ -20,6 +20,7 @@
           <ul class="nav nav-pills">
             <li role="presentation"><a href="#about" onclick="$('#about').animatescroll({scrollSpeed:1000,easing:'easeInOutBack'});">About</a></li>
             <li role="presentation"><a href="#contact" onclick="$('#contact').animatescroll({scrollSpeed:1000,easing:'easeInOutBack'});">Contact</a></li>
+            <li role="presentation"><a href='' ng-hide='!loan' ng-click='loan=false ; starthere=false'>Start over</a></li>
           </ul>
         </div>
       </nav>
@@ -54,20 +55,18 @@
 
           <p>When do you want to be paid back?</p>
 
-          <div class="container">
-              <div class="col-sm-6" style="height:130px;">
-                  <div class="form-group">
-                      <div class='input-group date' id='datetimepicker11'>
-                          <input type='text' class="form-control" />
-                          <span class="input-group-addon">
-                              <span class="glyphicon glyphicon-calendar">
-                              </span>
-                          </span>
-                      </div>
-                  </div>
-              </div>
-            
-          </div>
+          <form class="form-inline">
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker11'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar">
+                        </span>
+                    </span>
+                </div>
+            </div>
+          </form>
+
 
           <button type="submit" class="btn btn-primary">loan up</button>
         </div>
@@ -76,7 +75,7 @@
         <div ng-hide='!borrow'>
           <h2>some other writing</h2>
         </div>
-        <button ng-hide='!loan' ng-click='loan=false ; starthere=false'>Go back</button>
+
 
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
