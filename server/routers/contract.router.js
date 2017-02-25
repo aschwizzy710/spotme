@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var User = require('../models/user.model.js');
+var Contract = require('../models/contract.model.js');
 // tool which allows the router to actually extract the data that it takes in
 var bodyParser = require('body-parser');
 
@@ -10,65 +10,65 @@ router.use(bodyParser.urlencoded({extended: true}));
 
 // performing CRUD functions from the router
  // - use plural 'alerts' as it is assumed this will be a collection as there is implicitly more than one alert
-router.get('/users', function(req, res){
-  User.find({}, function(err, foundUsers){
+router.get('/contracts', function(req, res){
+  Contract.find({}, function(err, foundContracts){
     if(err){
       res.status(500).json({
         err: err
       });
     }
     res.status(200).json({
-      users: foundUsers
+      contracts: foundContracts
     });
   });
 });
-router.get('/users/:id', function(req, res){
-  User.find({_id: req.params.id}, function(err, foundUser){
+router.get('/contracts/:id', function(req, res){
+  Contract.find({_id: req.params.id}, function(err, foundContract){
     if(err){
       res.status(500).json({
         err: err
       });
     }
     res.status(200).json({
-      user: foundUser
+      contract: foundContract
     });
   });
 });
-router.post('/users', function(req, res){
+router.post('/contracts', function(req, res){
   console.log(req.body);
-  var user = new User(req.body);
-  user.save(function(err){
+  var contract = new Contract(req.body);
+  contract.save(function(err){
     if(err){
       res.status(500).json({
         err: err
       });
     }
     res.status(201).json({
-      msg: 'Successfully created user'
+      msg: 'Successfully created contract'
     });
   });
 });
-router.put('/users/:id', function(req, res){
-  User.findOneAndUpdate({_id: req.params.id}, req.body, function(err, oldUser){
+router.put('/contracts/:id', function(req, res){
+  Contract.findOneAndUpdate({_id: req.params.id}, req.body, function(err, oldContract){
     if(err){
       res.status(500).json({
         err: err
       });
     }
     res.status(200).json({
-      msg: oldUser
+      msg: oldContract
     });
   });
 });
-router.delete('/users/:id', function(req, res){
-  User.findOneAndRemove({_id: req.params.id}, function(err, deletedUser){
+router.delete('/contracts/:id', function(req, res){
+  Contract.findOneAndRemove({_id: req.params.id}, function(err, deletedContract){
     if(err){
       res.status(500).json({
         err: err
       });
     }
     res.status(200).json({
-      msg: deletedUser
+      msg: deletedContract
     });
   });
 });

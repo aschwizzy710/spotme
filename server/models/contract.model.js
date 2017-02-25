@@ -4,13 +4,25 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 // tells our cookie cutter the shape its going to cut in
-var userSchema = new Schema({
-  zip: {
-    type: String,
+var contractSchema = new Schema({
+  apr: {
+    type: Number,
+    required: true
+  },
+  loanAmt: {
+    type: Number,
+    required: true
+  },
+  dueDate: {
+    type: Date,
+    required: true
+  },
+  isConfirmed: {
+    type: Boolean,
     required: true
   }
 });
 // forms the actual cookie cutter which is our model, or 'Album' in this case
-var User = mongoose.model('User', userSchema);
+var Contract = mongoose.model('Contract', contractSchema);
 // packages up our data and ships it our so its available in other files
-module.exports = User;
+module.exports = Contract;
