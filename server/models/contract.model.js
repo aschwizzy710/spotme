@@ -7,7 +7,7 @@ var Schema = mongoose.Schema;
 var contractSchema = new Schema({
   apr: {
     type: Number,
-    required: true
+    required: false
   },
   loanAmt: {
     type: Number,
