@@ -60,6 +60,11 @@ li a{
   padding-top: 200px;
 }
 
+#borrowview {
+  background-color: #228B22;
+  padding-top: 200px;
+}
+
 .copy {
   padding-top: 0px;
   height:100vh;
