@@ -23,10 +23,20 @@
       <p>loan or borrow?</p>
     </div>
 
-    <div>
-        <button type='submit' class='btn-default'>Loan</button>
-        <button type='submit' class='btn-default'>Borrow</button>
+    <div ng-show='!buttons'>
+        <button type='submit' class='btn-default' ng-click='loan=true ; buttons=true'>Loan</button>
+        <button type='submit' class='btn-default' ng-click='borrow=true ; buttons=true'>Borrow</button>
     </div>
+
+    <div ng-hide='!loan'>
+      <p>some writing</p>
+    </div>
+
+    <div ng-hide='!borrow'>
+      <p>some other writing</p>
+    </div>
+
+
 
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
