@@ -27,7 +27,7 @@
         <div id="home" class="copy text-center" ng-show='!starthere'>
 
             <div>
-              <h1>Spot Me!</h1>
+              <h1 style="font-size: 72px; margin-top: -60px;">Spot Me!</h1>
             </div>
             <div>
               <p>Help a friend out. Get paid back within 3 to 5 days.</p>
@@ -93,7 +93,7 @@
               </tr>
               <tr>
                 <th>APR %:</th>
-                <td>{{contract.apr}}</td>
+                <td>5%</td>
               </tr>
               <tr>
                 <th>Payback Date:</th>
@@ -129,11 +129,11 @@
                   </tr>
                   <tr>
                     <th>Max Loan:</th>
-                    <td>{{contract.maxLoan}}</td>
+                    <td>$3000</td>
                   </tr>
                   <tr>
                     <th>Min Loan:</th>
-                    <td>{{contract.minLoan}}</td>
+                    <td>$100</td>
                   </tr>
                 </tbody>
               </table>
@@ -149,7 +149,7 @@
               <label class="sr-only">Amount (in dollars)</label>
               <div class="input-group">
                 <div class="input-group-addon">$</div>
-                <input type="number" name='quantity' min='1' class="form-control" id="exampleInputAmount" placeholder="Amount">
+                <input type="number" ng-model="contract.loanAmt" name='quantity' min='1' class="form-control" id="exampleInputAmount" placeholder="Amount">
                 <div class="input-group-addon">.00</div>
               </div>
             </div>
@@ -160,7 +160,7 @@
           <form class="form-inline">
             <div class="form-group">
                 <div class='input-group date' id='datetimepicker11'>
-                    <input type='text' class="form-control" />
+                    <input type='text' class="form-control" ng-model="contract.dueDate"/>
                     <span class="input-group-addon">
                         <span id="calendarIcon" class="glyphicon glyphicon-calendar">
                         </span>
@@ -187,7 +187,7 @@
               </tr>
               <tr>
                 <th>APR %:</th>
-                <td>{{contract.apr}}</td>
+                <td>5%</td>
               </tr>
               <tr>
                 <th>Payback Date:</th>
@@ -204,13 +204,36 @@
           <input ng-model="contract.isConfirmed" ng-value="true" type="radio" name="confirmation" value="Yes"> Yes
           <input ng-model="contract.isConfirmed" ng-value="false" type="radio" name="rejection" value="No"> No
           <br> <br>
-          <button type="submit" class="btn btn-primary btn-lg" ng-click='createContract(contract)'>Spot Me!</button>
+          <button type="submit" class="btn btn-primary btn-lg" ng-click='createContract(contract)' data-toggle="modal" data-target="#myModal">Loan It!</button>
         </div>
-
+        <!-- Payment Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+              <!-- Payment Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center" style="color: black;">Deposit To: </h4>
+              </div>
+              <div class="modal-body text-center">
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <a rel='nofollow' href='http://www.qrcode-generator.de' border='0' style='cursor:default'></a><img src='https://chart.googleapis.com/chart?cht=qr&chl=1PPiP2AoxeH3Ed83wVGpvkd59SQHkvWKFT&chs=180x180&choe=UTF-8&chld=L|2' alt=''>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Done!</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script src="js/app.js"></script>
   <script src="js/controllers/main.controller.js"></script>
   <script src="js/services/contract.service.js"></script>
