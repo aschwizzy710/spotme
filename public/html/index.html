@@ -30,7 +30,7 @@
               <h1>Spot Me!</h1>
             </div>
             <div>
-              <p>Help out a friend. Get paid back within 3 to 5 days.</p>
+              <p>Help a friend out. Get paid back within 3 to 5 days.</p>
                 <button type='submit' class='btn-primary btn-lg' ng-click='loan=true ; starthere=true'>Loan</button>
               <p>Need a spotter? We got you.</p>
                 <button type='submit' class='btn-primary btn-lg' ng-click='borrow=true ; starthere=true'>Borrow</button>
@@ -68,26 +68,38 @@
             </div>
           </form>
 
-          <button type="submit" class="btn btn-primary" ng-click='loanerAgreement=!loanerAgreement ; loan=false;'>loan up</button>
+          <button type="button" class="btn btn-primary" ng-click='loanerAgreement=!loanerAgreement ; loan=false;'>loan up</button>
         </div>
 
 <!-- Loaner Agreement Page -->
 
       <div id="loan-agreement" class="copy text-center" ng-hide="!loanerAgreement">
         <h2>Loan Agreement</h2>
-
-        <p>BTC Amount: {{contract.amount}}</p>
-        <p>APR %: {{contract.apr}}</p>
-        <p>Payback Date: {{contract.dueDate}}</p>
-        <form class="form-inline">
-          <div class="form-group">
-            <p>Do you agree to the above terms?</p>
+      <form class="form-inline">
+        <div class="form-group">
+          <table class='table table-bordered'>
+            <tbody>
+              <tr>
+                <th>BTC Amount:</th>
+                <td>{{contract.loanAmt}}</td>
+              </tr>
+              <tr>
+                <th>APR %:</th>
+                <td>{{contract.apr}}</td>
+              </tr>
+              <tr>
+                <th>Payback Date:</th>
+                <td>{{contract.dueDate}}</td>
+              </tr>
+            </tbody>
+          </table>
+              <p>Do you agree to the above terms?</p>
             <input type="radio" name="confirmation" value="Yes"> Yes
             <input type="radio" name="rejection" value="No"> No
           </div>
         </form>
 
-        <button type="submit" class="btn btn-primary btn-success" ng-click="createContract(Contract)">I'm Sure!</button>
+        <button type="submit" class="btn btn-primary btn-success" ng-click="createContract(contract)">I'm Sure!</button>
 
       </div>
 
@@ -96,7 +108,7 @@
         <div id='borrowview' class='copy text-center' ng-show='borrow'>
           <h2>You qualify for:</h2>
 
-          <p>Current APR rate {{contract.apr}}</p>
+          <p>Current APR rate </p>
 
           <p>max: </p>
           <p>min: </p>
@@ -128,7 +140,7 @@
             </div>
           </form>
 
-          <button type="submit" class="btn btn-primary" ng-click='borrowerAgreement=!borrowerAgreement ; borrow=false; '>Spot Me!</button>
+          <button type="button" class="btn btn-primary" ng-click='borrowerAgreement=!borrowerAgreement ; borrow=false; '>Spot Me!</button>
         </div>
 
 <!-- Borrower Agreement Page -->
@@ -147,7 +159,7 @@
           </div>
         </form>
 
-        <button type="submit" class="btn btn-primary btn-success" ng-click="createContract(newContract)">I'm Sure!</button>
+        <button type="button" class="btn btn-primary btn-success" ng-click="createContract(contract)">I'm Sure!</button>
 
       </div>
   </div>

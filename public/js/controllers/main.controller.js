@@ -16,9 +16,8 @@ function MainController($scope, ContractService){
   }, function(){
     $scope.contracts = ContractService.get();
   });
-  function createContract(newContract){
-    ContractService.create(newContract);
-    $scope.newContract = '';
+  function createContract(contract){
+    ContractService.create(contract);
   }
   function deleteContract(index, contract){
     ContractService.delete(index, contract);
@@ -32,17 +31,17 @@ function MainController($scope, ContractService){
   }
 
 }
+//
+// AOS.init();
+// $(window).on('load', function () {
+//     AOS.refresh();
+// });
 
-AOS.init();
-$(window).on('load', function () {
-    AOS.refresh();
-});
-
-$(function () {
-    $('#calendarIcon').datetimepicker({
-        daysOfWeekDisabled: [0, 6]
-    });
-});
+// $(function () {
+//     $('#calendarIcon').datetimepicker({
+//         daysOfWeekDisabled: [0, 6]
+//     });
+// });
 
 
 }());
