@@ -69,7 +69,7 @@
             </div>
           </form>
 
-          <button type="submit" class="btn btn-primary" ng-click='loanerAgreement=!loanerAgreement ; loan=false;'>loan up</button>
+          <button type="submit" class="btn btn-primary" ng-click='loanerAgreement=!loanerAgreement ; loan=false; '>loan up</button>
         </div>
 
 <!-- Loaner Agreement Page -->
@@ -134,7 +134,33 @@
             </div>
           </form>
 
+          <button type="submit" class="btn btn-primary" ng-click='borrowerAgreement=!borrowerAgreement ; loan=false; '>borrow up</button>
+
         </div>
+<!-- Borrower Agreement Page-->
+
+    <div id="borrower-agreement" class="copy text-center" ng-hide="!borrowerAgreement">
+      <h2>Loan Agreement</h2>
+
+      <p>BTC Amount: {{contract.loanAmt}}</p>
+      <p>APR %: {{contract.apr}}</p>
+      <p>Payback Date: {{contract.dueDate}}</p>
+
+      <form class="form-inline">
+        <div class="form-group">
+          <p>Do you agree to the above terms?</p>
+          <input ng-model="contract.isConfirmed" ng-value="true" type="radio" name="confirmation" value="Yes"> Yes
+          <input ng-model="contract.isConfirmed" ng-value="false" type="radio" name="rejection" value="No"> No
+
+        </div>
+
+
+      </form>
+
+      <button type="submit" class="btn btn-primary" ng-click="createContract(contract)">I'm Sure!</button>
+
+
+    </div>
 
 
   </div>
