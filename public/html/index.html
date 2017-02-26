@@ -17,7 +17,7 @@
           <ul class="nav nav-pills">
             <li role="presentation"><a href="#about" onclick="$('#about').animatescroll({scrollSpeed:1000,easing:'easeInOutBack'});">About</a></li>
             <li role="presentation"><a href="#contact" onclick="$('#contact').animatescroll({scrollSpeed:1000,easing:'easeInOutBack'});">Contact</a></li>
-            <li role="presentation"><a href='' ng-show='borrow' ng-hide='!loan' ng-click='loan=false ; borrow=false; starthere=false'>Start over</a></li>
+            <li role="presentation"><a href='' ng-show='borrow' ng-hide='!loan' ng-click='loan=!loan ; borrow=!borrow; starthere=!starthere'>Start over</a></li>
           </ul>
         </div>
       </nav>
@@ -29,11 +29,16 @@
             <div>
               <h1 style="font-size: 72px; margin-top: -60px;">Spot Me!</h1>
             </div>
-            <div>
-              <p>Help a friend out. Get paid back within 3 to 5 days.</p>
-                <button type='submit' class='btn-primary btn-lg' ng-click='loan=true ; starthere=true'>Loan</button>
-              <p>Need a spotter? We got you.</p>
-                <button type='submit' class='btn-primary btn-lg' ng-click='borrow=true ; starthere=true'>Borrow</button>
+            <div class="row">
+              <div class="col-md-6">
+                <p style="font-size: 24px; margin-top: 40px;">Help a friend out. Get paid back within 3 to 5 days.</p>
+                  <button type='submit' class='btn-primary btn-lg' height="100px" width="200px" ng-click='loan=true ; starthere=true'>Loan</button>
+              </div>
+              <div class="col-md-6">
+                <p style="font-size: 24px; margin-top: 40px;">Need a spotter? We got you.</p>
+                  <button type='submit' class='btn-primary btn-lg' ng-click='borrow=true ; starthere=true'>Borrow</button>
+              </div>
+
             </div>
 
         </div>
@@ -109,7 +114,7 @@
       <input type="radio" name="rejection" value="No"> No
       <br>
 
-        <button type="submit" class="btn btn-primary btn-lg" ng-click="createContract(contract)">I'm Sure!</button>
+        <button type="submit" class="btn btn-primary btn-lg" ng-click="createContract(contract) ; loanerAgreement=!loanerAgreement ; starthere=!starthere ">I'm Sure!</button>
 
         </div>
         </form>
@@ -169,12 +174,11 @@
             </div>
           </form>
 
-    <br>
+          <br>
           <button type="submit" class="btn btn-primary btn-lg" ng-click='borrowerAgreement=!borrowerAgreement ; borrow=false; '>Borrow Up!</button>
 
         </div>
 <!-- Borrower Agreement Page-->
-
     <div id="borrower-agreement" class="copy text-center" ng-hide="!borrowerAgreement">
       <h2>Loan Agreement</h2>
       <form class="form-inline">
