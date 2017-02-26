@@ -13,9 +13,6 @@
 
     <header>
       <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="logo">
-          <a href="#home" class="navbar-brand">Spot Me!</a>
-        </div>
         <div class="container">
           <ul class="nav nav-pills">
             <li role="presentation"><a href="#about" onclick="$('#about').animatescroll({scrollSpeed:1000,easing:'easeInOutBack'});">About</a></li>
@@ -27,16 +24,18 @@
     </header>
 
 <!-- Homepage -->
-        <div id="home" class="text-center" ng-show='!starthere'>
-          <section class="copy" >
+        <div id="home" class="copy text-center" ng-show='!starthere'>
+
             <div>
-              <h1>loan or borrow?</h1>
+              <h1>Spot Me!</h1>
             </div>
             <div>
-                <button type='submit' class='btn-default' ng-click='loan=true ; starthere=true'>Loan</button>
-                <button type='submit' class='btn-default' ng-click='borrow=true ; starthere=true'>Borrow</button>
+              <p>Help out a friend. Get paid back within 3 to 5 days.</p>
+                <button type='submit' class='btn-primary btn-lg' ng-click='loan=true ; starthere=true'>Loan</button>
+              <p>Need a spotter? We got you.</p>
+                <button type='submit' class='btn-primary btn-lg' ng-click='borrow=true ; starthere=true'>Borrow</button>
             </div>
-          </section>
+
         </div>
 
 <!-- Loan page -->
@@ -76,24 +75,18 @@
 
       <div id="loan-agreement" class="copy text-center" ng-hide="!loanerAgreement">
         <h2>Loan Agreement</h2>
-
         <p>BTC Amount: {{contract.amount}}</p>
         <p>APR %: {{contract.apr}}</p>
         <p>Payback Date: {{contract.dueDate}}</p>
-
         <form class="form-inline">
           <div class="form-group">
             <p>Do you agree to the above terms?</p>
             <input type="radio" name="confirmation" value="Yes"> Yes
             <input type="radio" name="rejection" value="No"> No
-
           </div>
-
-
         </form>
 
         <button type="submit" class="btn btn-primary btn-success" ng-click="createContract(newContract)">I'm Sure!</button>
-
 
       </div>
 
@@ -134,9 +127,28 @@
             </div>
           </form>
 
+          <button type="submit" class="btn btn-primary" ng-click='borrowerAgreement=!borrowerAgreement ; borrow=false; '>Spot Me!</button>
         </div>
 
+<!-- Borrower Agreement Page -->
+      <div id="borrow-agreement" class="copy text-center" ng-hide="!borrowerAgreement">
+        <h2>Borrower Agreement</h2>
 
+        <p>BTC Amount:</p>
+        <p>APR %:</p>
+        <p>Payback Date:</p>
+
+        <form class="form-inline">
+          <div class="form-group">
+            <p>Do you agree to the above terms?</p>
+            <input type="radio" name="confirmation" value="Yes"> Yes
+            <input type="radio" name="rejection" value="No"> No
+          </div>
+        </form>
+
+        <button type="submit" class="btn btn-primary btn-success" ng-click="createContract(newContract)">I'm Sure!</button>
+
+      </div>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
