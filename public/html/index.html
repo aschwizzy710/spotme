@@ -75,6 +75,7 @@
 
       <div id="loan-agreement" class="copy text-center" ng-hide="!loanerAgreement">
         <h2>Loan Agreement</h2>
+
         <p>BTC Amount: {{contract.amount}}</p>
         <p>APR %: {{contract.apr}}</p>
         <p>Payback Date: {{contract.dueDate}}</p>
@@ -86,7 +87,7 @@
           </div>
         </form>
 
-        <button type="submit" class="btn btn-primary btn-success" ng-click="createContract(newContract)">I'm Sure!</button>
+        <button type="submit" class="btn btn-primary btn-success" ng-click="createContract(Contract)">I'm Sure!</button>
 
       </div>
 

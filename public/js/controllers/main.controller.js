@@ -2,34 +2,33 @@
   angular.module('SpotMe') // getter syntax
         .controller('MainController', MainController);
 
-MainController.$inject = ['$scope', 'UserService'];
+MainController.$inject = ['$scope', 'ContractService'];
 
-function MainController($scope, UserService){
-  $scope.contract.apr = 5;
-  $scope.users = UserService.get();
-  $scope.createUser = createUser;
-  $scope.deleteUser = deleteUser;
-  $scope.editUser = editUser;
-  $scope.saveUser = saveUser;
+function MainController($scope, ContractService){
+  $scope.contracts = ContractService.get();
+  $scope.createContract = createContract;
+  $scope.deleteContract = deleteContract;
+  $scope.editContract = editContract;
+  $scope.saveContract = saveContract;
 
   $scope.$watch(function(){
-    return UserService.get();
+    return ContractService.get();
   }, function(){
-    $scope.users = UserService.get();
+    $scope.contracts = ContractService.get();
   });
-  function createUser(newUser){
-    UserService.create(newUser);
-    $scope.newUser = '';
+  function createContract(newContract){
+    ContractService.create(newContract);
+    $scope.newContract = '';
   }
-  function deleteUser(index, user){
-    UserService.delete(index, user);
+  function deleteContract(index, contract){
+    ContractService.delete(index, contract);
   }
-  function editUser(user){
-    user.isBeingEdited = true;
+  function editContract(contract){
+    contract.isBeingEdited = true;
   }
-  function saveUser(index, user){
-  UserService.update(index, user);
-    user.isBeingEdited = false;
+  function saveContract(index, contract){
+  ContractService.update(index, contract);
+    contract.isBeingEdited = false;
   }
 
 }

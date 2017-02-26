@@ -19,7 +19,7 @@ var contractSchema = new Schema({
   },
   isConfirmed: {
     type: Boolean,
-    required: true
+    required: false
   }
 });
 // forms the actual cookie cutter which is our model, or 'Album' in this case

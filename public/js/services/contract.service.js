@@ -26,7 +26,7 @@
     function getAllContracts(){
       return contracts;
     }
-    function createOneUser(contract){
+    function createOneContract(contract){
       $http.post('/contracts', contract)
           .then(function(response){
             contracts.push(contract);
