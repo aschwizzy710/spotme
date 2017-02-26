@@ -82,6 +82,7 @@
 
       <div id="loan-agreement" class="copy text-center" ng-hide="!loanerAgreement">
         <h2>Loan Agreement</h2>
+
       <form class="form-inline">
         <div class="form-group">
           <table class='table'>
@@ -100,17 +101,18 @@
               </tr>
             </tbody>
           </table>
-              <p>Do you agree to the above terms?</p>
-            <input type="radio" name="confirmation" value="Yes"> Yes
-            <input type="radio" name="rejection" value="No"> No
-          </div>
-        </form>
-        <br>
 
+
+
+      <p>Do you agree to the above terms?</p>
+      <input type="radio" name="confirmation" value="Yes"> Yes
+      <input type="radio" name="rejection" value="No"> No
+      <br>
 
         <button type="submit" class="btn btn-primary btn-lg" ng-click="createContract(contract)">I'm Sure!</button>
 
-
+        </div>
+        </form>
       </div>
 
 <!-- Borrow page -->
@@ -175,10 +177,26 @@
 
     <div id="borrower-agreement" class="copy text-center" ng-hide="!borrowerAgreement">
       <h2>Loan Agreement</h2>
-
-      <p>BTC Amount: {{contract.loanAmt}}</p>
-      <p>APR %: {{contract.apr}}</p>
-      <p>Payback Date: {{contract.dueDate}}</p>
+      <form class="form-inline">
+        <div class="form-group">
+          <table class='table'>
+            <tbody>
+              <tr>
+                <th>BTC Amount:</th>
+                <td>{{contract.loanAmt}}</td>
+              </tr>
+              <tr>
+                <th>APR %:</th>
+                <td>{{contract.apr}}</td>
+              </tr>
+              <tr>
+                <th>Payback Date:</th>
+                <td>{{contract.dueDate}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </form>
 
       <form class="form-inline">
         <div class="form-group">
