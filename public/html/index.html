@@ -71,6 +71,7 @@
                 </div>
             </div>
           </form>
+          <br>
 
 
           <button type="submit" class="btn btn-primary btn-lg" ng-click='loanerAgreement=!loanerAgreement ; loan=false; '>Loan Up!</button>
@@ -100,27 +101,46 @@
               </tr>
             </tbody>
           </table>
-        </div>
-      </form>
+
+
 
       <p>Do you agree to the above terms?</p>
       <input type="radio" name="confirmation" value="Yes"> Yes
       <input type="radio" name="rejection" value="No"> No
+      <br>
 
         <button type="submit" class="btn btn-primary btn-lg" ng-click="createContract(contract) ; loanerAgreement=!loanerAgreement ; starthere=!starthere ">I'm Sure!</button>
 
-
+        </div>
+        </form>
       </div>
 
 <!-- Borrow page -->
 
         <div id='borrowview' class='copy text-center' ng-show='borrow'>
           <h2>You qualify for: </h2>
+          <form class="form-inline">
+            <div class="form-group">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <th>Current APR Rate: </th>
+                    <td>5%</td>
+                  </tr>
+                  <tr>
+                    <th>Max Loan:</th>
+                    <td>{{contract.maxLoan}}</td>
+                  </tr>
+                  <tr>
+                    <th>Min Loan:</th>
+                    <td>{{contract.minLoan}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </form>
 
-          <p>Current APR rate </p>
 
-          <p>max: {{contract.maxLoan}}</p>
-          <p>min: {{contract.minLoan}}</p>
 
 <!-- change ng-model to loan needed -->
           <p>Amount needed?</p>
@@ -134,7 +154,7 @@
               </div>
             </div>
           </form>
-
+          <br>
 <!-- change ng-model to contract.sending date something -->
           <p>Pay Back Date?</p>
           <form class="form-inline">
@@ -151,6 +171,7 @@
 
 
           <button type="submit" class="btn btn-primary" ng-click='borrowerAgreement=!borrowerAgreement ; borrow=false; '>Borrow Up!</button>
+
         </div>
 <!-- Borrower Agreement Page-->
     <div id="borrower-agreement" class="copy text-center" ng-hide="!borrowerAgreement">
@@ -183,6 +204,7 @@
           <input ng-model="contract.isConfirmed" ng-value="false" type="radio" name="rejection" value="No"> No
 
           <button type="submit" class="btn btn-primary" ng-click='createContract(contract) ; borrowerAgreement=!borrowerAgreement ; starthere=!starthere' >Spot Me!</button>
+
         </div>
 
   </div>
