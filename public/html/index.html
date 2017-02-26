@@ -40,7 +40,9 @@
 
 <!-- Loan page -->
         <div id='loanview' class='copy text-center' ng-hide='!loan'>
-          <h2>Load money</h2>
+          <h2>Loan money</h2>
+
+          <p>Current APR Rate: 5%</p>
 
           <form class="form-inline">
             <div class="form-group">
@@ -52,8 +54,10 @@
               </div>
             </div>
           </form>
+          <br>
 
-          <p>Current APR Rate: <input type="number" ng-model="contract.apr"><p>%</p>
+          </form>
+
 
           <p>When do you want to be paid back?</p>
           <form class="form-inline">
@@ -68,7 +72,7 @@
             </div>
           </form>
 
-          <button type="submit" class="btn btn-primary" ng-click='loanerAgreement=!loanerAgreement ; loan=false; '>loan up</button>
+          <button type="submit" class="btn btn-primary btn-lg" ng-click='loanerAgreement=!loanerAgreement ; loan=false; '>Loan Up!</button>
         </div>
 
 <!-- Loaner Agreement Page -->
@@ -87,19 +91,19 @@
           </div>
         </form>
 
-        <button type="submit" class="btn btn-primary btn-success" ng-click="createContract(Contract)">I'm Sure!</button>
+        <button type="submit" class="btn btn-primary btn-lg" ng-click="createContract(Contract)">I'm Sure!</button>
 
       </div>
 
 <!-- Borrow page -->
 
         <div id='borrowview' class='copy text-center' ng-show='borrow'>
-          <h2>You qualify for:</h2>
+          <h2>You qualify for: </h2>
 
           <p>Current APR rate {{contract.apr}}</p>
 
-          <p>max: </p>
-          <p>min: </p>
+          <p>max: {{contract.maxLoan}}</p>
+          <p>min: {{contract.minLoan}}</p>
 
 <!-- change ng-model to loan needed -->
           <p>Amount needed?</p>
@@ -115,7 +119,7 @@
           </form>
 
 <!-- change ng-model to contract.sending date something -->
-          <p>Pay back date:</p>
+          <p>Pay Back Date?</p>
           <form class="form-inline">
             <div class="form-group">
                 <div class='input-group date' id='datetimepicker11'>
@@ -128,7 +132,7 @@
             </div>
           </form>
 
-          <button type="submit" class="btn btn-primary" ng-click='borrowerAgreement=!borrowerAgreement ; loan=false; '>borrow up</button>
+          <button type="submit" class="btn btn-primary" ng-click='borrowerAgreement=!borrowerAgreement ; borrow=false; '>Borrow Up!</button>
 
         </div>
 <!-- Borrower Agreement Page-->
@@ -146,7 +150,7 @@
           <input ng-model="contract.isConfirmed" ng-value="true" type="radio" name="confirmation" value="Yes"> Yes
           <input ng-model="contract.isConfirmed" ng-value="false" type="radio" name="rejection" value="No"> No
 
-          <button type="submit" class="btn btn-primary" ng-click='borrowerAgreement=!borrowerAgreement ; borrow=false; '>Spot Me!</button>
+          <button type="submit" class="btn btn-primary" ng-click='createContract(contract)'>Spot Me!</button>
         </div>
 
   </div>
