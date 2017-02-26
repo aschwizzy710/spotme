@@ -83,10 +83,10 @@ li a{
 }
 
 .animate {
-    -webkit-animation: animation 10s;
-    -moz-animation: animation 10s;
-    -o-animation: animation 10s;
-    animation: animation 10s;
+    -webkit-animation: animation 30s;
+    -moz-animation: animation 30s;
+    -o-animation: animation 30s;
+    animation: animation 30s;
     opacity: 1;
 }
 @keyframes animation {
