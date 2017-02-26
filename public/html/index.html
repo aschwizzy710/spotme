@@ -69,23 +69,30 @@
             </div>
           </form>
 
-          <button type="submit" class="btn btn-primary" ng-click='loanerAgreement=true ; loan=false; createContract(newContract)'>loan up</button>
+          <button type="submit" class="btn btn-primary" ng-click='loanerAgreement=!loanerAgreement ; loan=false;'>loan up</button>
         </div>
 
 <!-- Loaner Agreement Page -->
 
-      <div id="loan-agreement" class="copy text-center" ng-show="!loanerAgreement">
+      <div id="loan-agreement" class="copy text-center" ng-hide="!loanerAgreement">
         <h2>Loan Agreement</h2>
+
+        <p>BTC Amount: {{contract.amount}}</p>
+        <p>APR %: {{contract.apr}}</p>
+        <p>Payback Date: {{contract.dueDate}}</p>
 
         <form class="form-inline">
           <div class="form-group">
-            <p>BTC Amount: {{contract.amount}}</p>
-            <p>APR </p>
+            <p>Do you agree to the above terms?</p>
+            <input type="radio" name="confirmation" value="Yes"> Yes
+            <input type="radio" name="rejection" value="No"> No
 
           </div>
 
 
         </form>
+
+        <button type="submit" class="btn btn-primary btn-success" ng-click="createContract(newContract)">I'm Sure!</button>
 
 
       </div>
@@ -107,7 +114,7 @@
               <label class="sr-only">Amount (in dollars)</label>
               <div class="input-group">
                 <div class="input-group-addon">$</div>
-                <input type="number" ng-model="" name='quantity' min='1' class="form-control" id="exampleInputAmount" placeholder="Amount">
+                <input type="number" name='quantity' min='1' class="form-control" id="exampleInputAmount" placeholder="Amount">
                 <div class="input-group-addon">.00</div>
               </div>
             </div>
@@ -118,7 +125,7 @@
           <form class="form-inline">
             <div class="form-group">
                 <div class='input-group date' id='datetimepicker11'>
-                    <input type='text' class="form-control" ng-model="" />
+                    <input type='text' class="form-control" />
                     <span class="input-group-addon">
                         <span id="calendarIcon" class="glyphicon glyphicon-calendar">
                         </span>
