@@ -37,7 +37,7 @@ router.get('/contracts/:id', function(req, res){
 router.post('/contracts', function(req, res){
   console.log(req.body);
   var contract = new Contract(req.body);
-  contract.save(function(err){
+  Contract.save(function(err){
     if(err){
       res.status(500).json({
         err: err

@@ -77,22 +77,22 @@
       <div id="loan-agreement" class="copy text-center" ng-hide="!loanerAgreement">
         <h2>Loan Agreement</h2>
 
-        <p>BTC Amount: {{contract.amount}}</p>
+        <p>BTC Amount: {{contract.loanAmt}}</p>
         <p>APR %: {{contract.apr}}</p>
         <p>Payback Date: {{contract.dueDate}}</p>
 
         <form class="form-inline">
           <div class="form-group">
             <p>Do you agree to the above terms?</p>
-            <input type="radio" name="confirmation" value="Yes"> Yes
-            <input type="radio" name="rejection" value="No"> No
+            <input ng-model="contract.isConfirmed" ng-value="true" type="radio" name="confirmation" value="Yes"> Yes
+            <input ng-model="contract.isConfirmed" ng-value="false" type="radio" name="rejection" value="No"> No
 
           </div>
 
 
         </form>
 
-        <button type="submit" class="btn btn-primary btn-success" ng-click="createContract(newContract)">I'm Sure!</button>
+        <button type="submit" class="btn btn-primary" ng-click="createContract(contract)">I'm Sure!</button>
 
 
       </div>
